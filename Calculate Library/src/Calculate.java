@@ -88,13 +88,7 @@ public class Calculate {
 	}
 	
 	public static double max(double val1, double val2, double val3) {
-		if(val1 > val2 && val1 > val3) {
-			return val1;
-		} else if(val2 > val3) {
-			return val2;
-		} else  {
-			return val3;
-		}
+		return max(val1, max(val2, val3));
 	}
 	
 	public static int min(int val1, int val2) {
@@ -157,10 +151,10 @@ public class Calculate {
 	public static int gcf(int input1, int input2) {
 		int answer = 1;	
 		for(int i =1; i<=input1; i++) {
-			for(int k =1; k <= input2; k++) {
-				if(isDivisibleBy(input2, i) && isDivisibleBy(input1, i)) {
+			
+			if(isDivisibleBy(input2, i) && isDivisibleBy(input1, i)) {
 					answer = i;
-				}
+				
 			}
 		}
 		return answer;
@@ -168,10 +162,10 @@ public class Calculate {
 	
 	public static double sqrt(int input) {
 		double answer =1;
-		double konstant = input;
-		while(!(konstant - answer < 0.005)) {
-			answer = (input / konstant + konstant)/2;
-			konstant = answer;
+	
+		while(!(absValue(input -( answer * answer ))< 0.005)) { //makes sure different is positive and runs while loop if the difference is more than 0.005
+			answer = (input / answer + answer)/2;
+	
 		}
 	return round2(answer);
 	}
