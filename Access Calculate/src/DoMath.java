@@ -1,7 +1,7 @@
 /*Client Code for the Calculate Library
  * Calls various methods in the calculate library
  * @author Aidan
- * @version 0 9/12/2018
+ * @version 3.1 9/12/2018
  */
 
 public class DoMath {

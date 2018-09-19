@@ -1,6 +1,6 @@
 /* This class contains the methods to do various math related tasks.
  * @author Aidan lee
- * @version 0 9/12/2018
+ * @version 3.1 9/12/2018
  */
 public class Calculate {
 	
