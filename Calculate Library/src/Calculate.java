@@ -19,7 +19,7 @@ public class Calculate {
 		return ((x1 + x2)/2);
 	}
 	
-	//This Average method adds three double inputs together and divides it by 3. Can be overloaded
+	//This Average method adds three doubles inputs together and divides it by 3. Can be overloaded
 	public static double average(double x1, double x2, double x3) {
 		return ((x1+x2+x3)/3);
 	}
@@ -57,7 +57,7 @@ public class Calculate {
 		int ax = co1 * co2; //ax^2
 		int bx = co1 * int2 + int1 * co2; //bx
 		int c = int1 * int2; //c
-		return ax + var + "^2" + "+" +bx + var +"+" + c;//output: ax^2+bx+c
+		return ax + var + "^2 " + "+ " +bx + var +" + " + c;//output: ax^2+bx+c
 	}
 	
 	//isDivisiblyBy method checks if a dividend is divisible by a divisor, in other words, is there a remainder
@@ -104,54 +104,63 @@ public class Calculate {
 	
 	//round2 method returns the the input rounded to two decimal places
 	public static double round2(double input) {
-		double round = input + 0.005; //adds 0.005 to round to next value if thousandth place  is greater than 5
+		double round;
+		if(input < 0) {
+			round = input - 0.005;//for negative inputs
+		} else {
+			round= input + 0.005;//for positive inputs
+		}
 		double pretruncate = round * 100;//multiples by 100 in preparation for a truncate
-		double truncate = (int) pretruncate /100.0; //truncates the input and divides by 100 to return it to the correct places
+		double truncate = ((int) pretruncate) /100.0; //truncates the input and divides by 100 to return it to the correct places
 		return truncate;//returns input rounded to two decimal places
 	}
 	
+	
+	//exponent method raises a value to a positive integer value
 	public static double exponent(double base, int exp) {
-		double answer = base;
-		exp = exp -1;
+		double answer = base;//answer= base^1
+		exp = exp -1;//minus 1 from exp b/c answer already has exp value of 1
 		
-		for(int i = 0; i < exp; i++) {
+		for(int i = 0; i < exp; i++) {//for loop to multiply base by exp
 			answer = answer * exp;
 		}
 		return answer;
 			
 	}
 	
+	//factorial method returns the factorial of the value passed
 	public static int factorial(int input) {
-		int answer = input;
+		int answer = input; //makes a variable to store the answer for for loop
 		for(int i = 1; i < input; i++) {
-			answer = answer * (input - i);
+			answer = answer * (input - i);//subtract i to decrement to do factorial...ie. 4*3*2*1
 		}
 		return answer;
 	}
 	
+	//isPrime determines whether or not an integer is prime
 	public static boolean isPrime(int input) {
 		//According to google, 0 and 1 are not prime numbers
-		if(input < 2) {
+		if(input < 2) {//Less than 2 != prime
 			return false;
 			
-		} else if(input == 2) { // 2= prime
+		} else if(input == 2) { // 2 is prime, according to google, so return truw
 			return true;
 		} else {
-			for(int i= 2; i < input; i++) {
+			for(int i= 2; i < input; i++) {//runs a for loop to test if all integers below the input tofind if its divisible by
 				if(isDivisibleBy(input, i)) {
-					return false;
+					return false;//if its divisible by something other than itself, then its not a prime number
 			}	
 		}
 		return true;
 		}
 	}
 	
-
+	//gcf methods finds the greatest common factor of two integers
 	public static int gcf(int input1, int input2) {
-		int answer = 1;	
-		for(int i =1; i<=input1; i++) {
+		int answer = 1;	//declares inital value for answer as 1 b/c 1 is always a gcf
+		for(int i =1; i<=input1; i++) {//test for gcf for integers up to value of input1
 			
-			if(isDivisibleBy(input2, i) && isDivisibleBy(input1, i)) {
+			if(isDivisibleBy(input2, i) && isDivisibleBy(input1, i)) {//returns i into answer the highest value both inputs are divisible by
 					answer = i;
 				
 			}
@@ -159,14 +168,19 @@ public class Calculate {
 		return answer;
 	}
 	
+	//sqrt method returns the approximation of the square root of the value passed, rounded to two decimal places
 	public static double sqrt(int input) {
-		double  guess=1;
+		if(input < 0) {
+			throw new IllegalArgumentException("YOU PUT IN A NEGATIVE VALUE U DINGBAT");
+		}
+		double  guess=1;//initial guess value
 	
 		while(!(absValue(input -( guess * guess ))< 0.005)) { //makes sure different is positive and runs while loop if the difference is more than 0.005
-			guess = (input / guess + guess)/2;
+			//uses absolute value so that the while loop can use positive numbers
+			guess = (input / guess + guess)/2;//Newton's guessing square root method
 	
 		}
-	return round2(guess);
+	return round2(guess);//uses round2 method to round output of above to two decimal places
 	}
 
 
