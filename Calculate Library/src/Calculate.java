@@ -4,7 +4,7 @@
  */
 public class Calculate {
 	
-	//Squaremethod accepts an integer input and returns the square of the input
+	//Square method accepts an integer input and returns the square of the input
 	public static int square(int input) { 
 		return (input * input);
 	}
@@ -119,7 +119,7 @@ public class Calculate {
 	//exponent method raises a value to a positive integer value
 	public static double exponent(double base, int exp) {
 		double answer = base;//answer= base^1
-		exp = exp -1;//minus 1 from exp b/c answer already has exp value of 1
+		exp = exp -1;//minus 1 from exp b/c answer already has base^1
 		
 		for(int i = 0; i < exp; i++) {//for loop to multiply base by exp
 			answer = answer * exp;
@@ -155,9 +155,9 @@ public class Calculate {
 		}
 	}
 	
-	//gcf methods finds the greatest common factor of two integers
+	//gcf methods finds the greatest common factor ofanswer two integers
 	public static int gcf(int input1, int input2) {
-		int answer = 1;	//declares inital value for answer as 1 b/c 1 is always a gcf
+		int answer = 1;	//declares inital value for  as 1 b/c 1 is always a gcf
 		for(int i =1; i<=input1; i++) {//test for gcf for integers up to value of input1
 			
 			if(isDivisibleBy(input2, i) && isDivisibleBy(input1, i)) {//returns i into answer the highest value both inputs are divisible by
@@ -169,9 +169,10 @@ public class Calculate {
 	}
 	
 	//sqrt method returns the approximation of the square root of the value passed, rounded to two decimal places
-	public static double sqrt(int input) {
+	public static double sqrt(double input) {
+	
 		if(input < 0) {
-			throw new IllegalArgumentException("YOU PUT IN A NEGATIVE VALUE U DINGBAT");
+			throw new IllegalArgumentException("Negative Input Recieved. Please input a positive number");
 		}
 		double  guess=1;//initial guess value
 	

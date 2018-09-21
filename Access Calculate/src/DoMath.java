@@ -16,11 +16,11 @@ public class DoMath {
 		System.out.println(Calculate.max(2,3,1));
 		/*System.out.println(Calculate.exponent(2, 3));
 		System.out.println(Calculate.factorial(4));
-				System.out.println(Calculate.gcf(91,91));
+				
 		*/
 		System.out.println(Calculate.isPrime(13));	
-
-		System.out.println(Calculate.sqrt(1));
+		System.out.println(Calculate.gcf(6,18));
+		System.out.println(Calculate.sqrt(-1.44));
 		
 	
 	}
