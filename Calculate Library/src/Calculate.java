@@ -15,13 +15,13 @@ public class Calculate {
 	}
 	
 	//This Average method adds two double inputs together and divide it by 2. Can be overloaded.
-	public static double average(double x1, double x2) {
-		return ((x1 + x2)/2);
+	public static double average(double input1, double input2) {
+		return ((input1 + input2)/2);
 	}
 	
 	//This Average method adds three doubles inputs together and divides it by 3. Can be overloaded
-	public static double average(double x1, double x2, double x3) {
-		return ((x1+x2+x3)/3);
+	public static double average(double input1, double input2, double input3) {
+		return ((input1 + input2 + input3 )/3);
 	}
 	
 	//toDegrees method converts an input in radians to degrees
@@ -49,7 +49,7 @@ public class Calculate {
 	
 	//toMixedNum method changes a improper fraction into a mixed number
 	public static String toMixedNum(int num, int denom) {
-		return (num /  denom ) + "_" +(num % denom) + "/ " + denom;
+		return (num /  denom ) + "_" +(num % denom) + "/" + denom;
 	}
 	
 	//foil method expands a quadratic function given in x-intercept form (co1 + int1)(co2 + int2) to ax^2+bx+c including a inputted variable
@@ -118,11 +118,10 @@ public class Calculate {
 	
 	//exponent method raises a value to a positive integer value
 	public static double exponent(double base, int exp) {
-		double answer = base;//answer= base^1
-		exp = exp -1;//minus 1 from exp b/c answer already has base^1
 		
-		for(int i = 0; i < exp; i++) {//for loop to multiply base by exp
-			answer = answer * exp;
+		double answer =1;//assigns the answer to 1 since base^0=1
+		for(int i = 0; i < exp; i++) {//runs for loop as many times as exp
+			answer = answer * base;
 		}
 		return answer;
 			
@@ -143,10 +142,10 @@ public class Calculate {
 		if(input < 2) {//Less than 2 != prime
 			return false;
 			
-		} else if(input == 2) { // 2 is prime, according to google, so return truw
+		} else if(input == 2) { // 2 is prime, according to google, so return true
 			return true;
 		} else {
-			for(int i= 2; i < input; i++) {//runs a for loop to test if all integers below the input tofind if its divisible by
+			for(int i= 2; i < input; i++) {//runs a for loop to test if all integers below the input to find if its divisible by
 				if(isDivisibleBy(input, i)) {
 					return false;//if its divisible by something other than itself, then its not a prime number
 			}	
