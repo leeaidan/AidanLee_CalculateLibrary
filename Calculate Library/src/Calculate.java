@@ -62,6 +62,9 @@ public class Calculate {
 	
 	//isDivisiblyBy method checks if a dividend is divisible by a divisor, in other words, is there a remainder
 	public static boolean isDivisibleBy(int dividend, int divisor) {
+		if(divisor == 0) {
+			throw new IllegalArgumentException("Cannot divide by zero!");
+		}
 		if(dividend % divisor == 0) { //is Divisible
 			return true;
 		} else {
@@ -118,6 +121,9 @@ public class Calculate {
 	
 	//exponent method raises a value to a positive integer value
 	public static double exponent(double base, int exp) {
+		if(exp < 0) {
+			throw new IllegalArgumentException("Please enter a positive exponent");
+		}
 		
 		double answer =1;//assigns the answer to 1 since base^0=1
 		for(int i = 0; i < exp; i++) {//runs for loop as many times as exp
@@ -129,6 +135,10 @@ public class Calculate {
 	
 	//factorial method returns the factorial of the value passed
 	public static int factorial(int input) {
+		if(input < 0) {
+			throw new IllegalArgumentException("Cannot enter a negative factorial!");
+		}
+		
 		int answer = input; //makes a variable to store the answer for for loop
 		for(int i = 1; i < input; i++) {
 			answer = answer * (input - i);//subtract i to decrement to do factorial...ie. 4*3*2*1
@@ -182,6 +192,33 @@ public class Calculate {
 		}
 	return round2(guess);//uses round2 method to round output of above to two decimal places
 	}
-
+	
+	//quadForm method returns the roots of a quadractic function in a String
+	public static String quadForm(int a, int b, int c) {
+		if(discriminant(a,b,c) < 0) {
+			return "no real roots";
+		}
+		//Roots are + and -
+		double positiveAnswer = -b+sqrt((discriminant(a,b,c))) / (2 * a);
+		double negativeAnswer = -b-sqrt((discriminant(a,b,c))) / (2 * a);
+		
+		if(positiveAnswer == negativeAnswer) {
+			return "" +round2(positiveAnswer);//return either positive or negative because they are the same
+			
+		} else {
+			if(max(positiveAnswer, negativeAnswer) == positiveAnswer) {
+				return round2(positiveAnswer) + " and " + round2(negativeAnswer);
+				
+			} else {
+				return round2(negativeAnswer) + " and " + round2(positiveAnswer);
+			}
+			
+			
+		}
+		
+		
+		
+		
+	}
 
 }
