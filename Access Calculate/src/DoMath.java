@@ -6,8 +6,11 @@
 
 public class DoMath {
 	public static void main(String [] args) {
-		System.out.println(Calculate.toMixedNum(1, 2));
-		System.out.println(Calculate.quadForm(-1, 2, 4));
+		//System.out.println(Calculate.toMixedNum(1, 2));
+		System.out.println(Calculate.discriminant(1, 2, 1));
+		System.out.println(Calculate.sqrt(4));
+		System.out.println(Calculate.quadForm(1, 2, 1));
+		
 	
 		
 	

@@ -39,7 +39,7 @@ public class Calculate {
 	
 	//discriminant method finds the descriminant found in the quadractic equation with inputs a,b,c
 	public static double discriminant(double a, double b, double c) {
-		return (b*b)-4*a*c;
+		return (b*b)-(4*a*c);
 	}
 	
 	//toImproperFrac method changes a mixed number into an improper fraction
@@ -183,6 +183,9 @@ public class Calculate {
 		if(input < 0) {
 			throw new IllegalArgumentException("Negative Input Recieved. Please input a positive number");
 		}
+		if(input ==0.0) {
+			return 0.0;
+		}
 		double  guess=1;//initial guess value
 	
 		while(!(absValue(input -( guess * guess ))< 0.005)) { //makes sure different is positive and runs while loop if the difference is more than 0.005
@@ -199,18 +202,22 @@ public class Calculate {
 			return "no real roots";
 		}
 		//Roots are + and -
-		double positiveAnswer = -b+sqrt((discriminant(a,b,c))) / (2 * a);
-		double negativeAnswer = -b-sqrt((discriminant(a,b,c))) / (2 * a);
+		double p = -b+sqrt((discriminant(a,b,c)));
+		double n = -b-sqrt((discriminant(a,b,c)));
+		double positiveAnswer = p/(2*a);
+		double negativeAnswer =n/(2*a);
+		System.out.println(positiveAnswer);
+		System.out.println(negativeAnswer);
 		
 		if(positiveAnswer == negativeAnswer) {
-			return "" +round2(positiveAnswer);//return either positive or negative because they are the same
+			return "" +positiveAnswer;//return either positive or negative because they are the same
 			
 		} else {
 			if(max(positiveAnswer, negativeAnswer) == positiveAnswer) {
-				return round2(positiveAnswer) + " and " + round2(negativeAnswer);
+				return positiveAnswer + " and " + negativeAnswer;
 				
 			} else {
-				return round2(negativeAnswer) + " and " + round2(positiveAnswer);
+				return negativeAnswer + " and " + positiveAnswer;
 			}
 			
 			
