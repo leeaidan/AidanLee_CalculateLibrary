@@ -201,11 +201,11 @@ public class Calculate {
 		if(discriminant(a,b,c) < 0) {
 			return "no real roots";
 		}
-		//Roots are + and -
-		double p = -b+sqrt((discriminant(a,b,c)));
-		double n = -b-sqrt((discriminant(a,b,c)));
-		double positiveAnswer = p/(2*a);
-		double negativeAnswer =n/(2*a);
+		
+		double posdiscriminant = -b+sqrt((discriminant(a,b,c)));
+		double negdiscriminant = -b-sqrt((discriminant(a,b,c)));
+		double positiveAnswer = posdiscriminant/(2*a);//calculates one of the x intercept
+		double negativeAnswer =negdiscriminant/(2*a);//calculates the other x intercept
 		System.out.println(positiveAnswer);
 		System.out.println(negativeAnswer);
 		
@@ -214,10 +214,10 @@ public class Calculate {
 			
 		} else {
 			if(max(positiveAnswer, negativeAnswer) == positiveAnswer) {
-				return positiveAnswer + " and " + negativeAnswer;
+				return positiveAnswer + " and " + negativeAnswer;//returns smaller answer then larger answer
 				
 			} else {
-				return negativeAnswer + " and " + positiveAnswer;
+				return negativeAnswer + " and " + positiveAnswer;//returns smaller answer then larger answer
 			}
 			
 			

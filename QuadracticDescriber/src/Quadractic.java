@@ -6,9 +6,9 @@
  */
 public class Quadractic {
 	public static String quadrDescriber(double a, double b, double c) {
-		String equation, openDirection, symmetry, vertex, xintercepts, yintercept;
+		String equation, openDirection, symmetry, vertex, xintercepts, yintercept;//declares many string variables to be used in Quadractic.java
 
-		//1. Open Direction
+		//1. Finds which direction the parabola opens, throws exception if a==0 b/c thats not a parabola
 		if(a > 0) {
 			openDirection = "Opens: Up\n";
 		} else if (a== 0) {
@@ -17,31 +17,31 @@ public class Quadractic {
 			openDirection = "Opens: Down\n";
 		}
 		
-		//2. Equation 
-		equation = "Description for Equation -- y= " + a + "x^2 + " + b + "x + " + c + "\n";
+		//2. Educates user on what equation the program will be describing
+		equation = "Description of the graph of:\ny= " + a + "x^2 + " + b + "x + " + c + "\n\n";
 		
-		//3. Symmetry and Vertex
-		double prevertexCordX = -b / (2*a); //also Line of Symmetry
-		double vertexCordX = 0.0;
-		if(prevertexCordX == -0.0) {
+		//3. Calculates the line of symmetry and coordinates of the vertex
+		double prevertexCordX = -b / (2*a); //Calculates the x coordinate of the vertex, also Line of Symmetry
+		double vertexCordX = 0.0; //establishes a base value
+		if(prevertexCordX == -0.0) { //this if statement resolves issues with outputs that are 0,0, since they seem to return (-0.0, 0.0)
 			vertexCordX = absValue(prevertexCordX);
 		} else {
 			vertexCordX = prevertexCordX;
 		}
-		double vertexCordY = a * (vertexCordX * vertexCordX) + (b* vertexCordX) + c;
+		double vertexCordY = a * (vertexCordX * vertexCordX) + (b* vertexCordX) + c;//calculates the y value of the vertex by plugging in the x value of the vertex
 		
-		symmetry = "Axis of Symmetry: " + vertexCordX + "\n";
-		vertex = "Vertex: (" + vertexCordX + ", " + vertexCordY +")\n";
+		symmetry = "Axis of Symmetry: " + vertexCordX + "\n";//Assigns Line of Symmetry to string
+		vertex = "Vertex: (" + vertexCordX + ", " + vertexCordY +")\n";//Assigns vertex coordinate to string vertex
 		
 		//4. X intercept
-		xintercepts = "x-intercept(s): " + quadForm(a,b,c) + "\n";
+		xintercepts = "x-intercept(s): " + quadForm(a,b,c) + "\n";//calculates x intercept(s) of the quadractic equation and assigns to string xintercepts
 		//5. y-intercept
-		yintercept = "y-intercept: " + c + "\n";
+		yintercept = "y-intercept: " + c + "\n";//calculates y intercept and assigns to string yintercept
 		
 		//Return
 		String returnStatement =  equation + openDirection + symmetry
-								  + vertex + xintercepts + yintercept;
-		return returnStatement;
+								  + vertex + xintercepts + yintercept;//assigns all the return strings to a sifngle string returnStatement
+		return returnStatement;//returns output of quadrDescriber
 	
 	}
 

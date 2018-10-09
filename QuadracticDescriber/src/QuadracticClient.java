@@ -15,24 +15,24 @@ public class QuadracticClient {
 		double b;
 		double c;
 		do {
-			System.out.print("\na:");
+			System.out.print("\na:");//Gets value of a and stores it
 			a = userInput.nextDouble();
 		
-			System.out.print("\nb:");
+			System.out.print("\nb:");//gets value of b and stores it
 			b = userInput.nextDouble();
 		
-			System.out.print("\nc:");
+			System.out.print("\nc:");//gets value of c and stores it
 			c = userInput.nextDouble();
 			
 			System.out.println();
-			System.out.println("a: "+ a + "\nb: " + b + "\nc: " + c + "\n");
+			System.out.println("a: "+ a + "\nb: " + b + "\nc: " + c + "\n");//prints out a,b,c to the user
 			
-			System.out.println("***Here are the results!***\n\n" + Quadractic.quadrDescriber(a, b, c));
+			System.out.println("***Here are the results!***\n\n" + Quadractic.quadrDescriber(a, b, c));//prints out the description of the quadratic using return of method quadrDescriber
 			
-			System.out.println("Do you wish to continue? Type \"q\" to quit");
+			System.out.println("Do you want to continue? (Type \"quit\" to end)");//quits if user types quit
 			String quit = userInput.next();
 			
-			if(quit.equals("q")) continueInput = false;
+			if(quit.equals("quit")) continueInput = false;
 		} while(continueInput);
 		
 		userInput.close(); //closes Scanner because Eclipse's "!" symbol annoyed me
