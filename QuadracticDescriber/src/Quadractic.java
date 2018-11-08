@@ -104,10 +104,8 @@ public class Quadractic {
 				return "no real roots";
 			}
 			//Roots are + and -
-			double p = -b+sqrt((discriminant(a,b,c)));
-			double n = -b-sqrt((discriminant(a,b,c)));
-			double positiveAnswer = p/(2*a);
-			double negativeAnswer =n/(2*a);
+			double positiveAnswer = (-b+sqrt((discriminant(a,b,c))))/(2*a);//calculates one of the x intercept
+			double negativeAnswer = (-b-sqrt((discriminant(a,b,c))))/(2*a);//calculates the other x intercept
 		
 			
 			if(positiveAnswer == negativeAnswer) {

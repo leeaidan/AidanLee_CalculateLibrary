@@ -202,18 +202,18 @@ public class Calculate {
 			return "no real roots";
 		}
 		
-		double posdiscriminant = -b+sqrt((discriminant(a,b,c)));
-		double negdiscriminant = -b-sqrt((discriminant(a,b,c)));
-		double positiveAnswer = posdiscriminant/(2*a);//calculates one of the x intercept
-		double negativeAnswer =negdiscriminant/(2*a);//calculates the other x intercept
-		System.out.println(positiveAnswer);
-		System.out.println(negativeAnswer);
+		double positiveAnswer = (-b+sqrt((discriminant(a,b,c))))/(2*a);//calculates one of the x intercept
+		double negativeAnswer = (-b-sqrt((discriminant(a,b,c))))/(2*a);//calculates the other x intercept
+		
 		
 		if(positiveAnswer == negativeAnswer) {
+			if((positiveAnswer == -0.0) || (negativeAnswer == -0.0)) {
+				return ""+-(positiveAnswer);
+			}
 			return "" +positiveAnswer;//return either positive or negative because they are the same
 			
 		} else {
-			if(max(positiveAnswer, negativeAnswer) == positiveAnswer) {
+			if(negativeAnswer > positiveAnswer) {
 				return positiveAnswer + " and " + negativeAnswer;//returns smaller answer then larger answer
 				
 			} else {
